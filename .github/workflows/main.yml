@@ -4,7 +4,7 @@ on:
   workflow_dispatch:
   
 env:
-  image-name: ${GITHUB_RUN_ID}
+  image-name: ${{ github.repository }}
 
 jobs:
   docker:
