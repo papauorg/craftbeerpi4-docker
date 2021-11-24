@@ -2,6 +2,9 @@ name: 'Build Docker Image'
 
 on:
   workflow_dispatch:
+  
+env:
+  image-name: ${GITHUB_RUN_ID}
 
 jobs:
   docker:
@@ -27,4 +30,4 @@ jobs:
           file: ./Dockerfile
           platforms: linux/arm,linux/arm64
           push: false
-          tags: ${GITHUB_RUN_ID}:latest
+          tags: "${{ env.image-name }}:latest"
