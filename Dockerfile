@@ -13,7 +13,12 @@ RUN apt-get install --no-install-recommends -y \
     libatlas-base-dev \
     libffi-dev \
     python3-pip \
+    python3-numpy \
+    python3-scipy \
+    python3-pandas \
     && rm -rf /var/lib/apt/lists/*
+
+RUN python -m pip install --upgrade pip setuptools wheel
 
 WORKDIR /cbpi
 # Create non-root user working directory
