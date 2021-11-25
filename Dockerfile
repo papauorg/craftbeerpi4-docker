@@ -13,9 +13,6 @@ RUN apt-get install --no-install-recommends -y \
     libatlas-base-dev \
     libffi-dev \
     python3-pip \
-    python3-numpy \
-    python3-scipy \
-    python3-pandas \
     && rm -rf /var/lib/apt/lists/*
 
 RUN python -m pip install --upgrade pip setuptools wheel
@@ -28,7 +25,7 @@ RUN groupadd -g 1000 -r craftbeerpi \
 
 # Install craftbeerpi
 COPY --from=download /downloads /downloads
-RUN pip3 install --no-cache-dir --no-build-isolation /downloads/cbpi.zip
+RUN pip3 install --no-cache-dir /downloads/cbpi.zip
 RUN pip3 install --no-cache-dir /downloads/cbpi-ui.zip
 RUN rm -rf /downloads
 
