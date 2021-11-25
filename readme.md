@@ -5,7 +5,8 @@ installation instructions from here:
 https://openbrewing.gitbook.io/craftbeerpi4_support/master/server-installation
 
 ## Build
-This image is not published anywhere (yet), so you have to build it yourself.
+This image is only published for arm64 and amd64 architectures.
+I could not get it to build for arm/v7. You can try to build it yourself.
 You can do this directly on your raspberry to get an arm image.
 
 ```bash
@@ -23,7 +24,7 @@ The group (with gid 1000) that runs craftbeerpi in the container
 needs write permissions to the config directory.
 ```bash
 mkdir config && chown :1000 config
-docker run --rm -v "$(pwd)/config:/cbpi/config" papauorg/craftbeerpi4:dev cbpi setup
+docker run --rm -v "$(pwd)/config:/cbpi/config" ghcr.io/papauorg/craftbeerpi4:latest cbpi setup
 ```
 
 After creating the configs you can then start the docker container. In this sample the
@@ -33,7 +34,7 @@ See: https://stackoverflow.com/questions/30059784/docker-access-to-raspberry-pi-
 works.
 
 ```bash
-docker run -d -v "$(pwd)/config:/cbpi/config" -p 8000:8000 --device /dev/gpiomem papauorg/craftbeerpi4:dev
+docker run -d -v "$(pwd)/config:/cbpi/config" -p 8000:8000 --device /dev/gpiomem ghcr.io/papauorg/craftbeerpi4:latest
 ```
 
 ### docker-compose
@@ -41,7 +42,7 @@ docker run -d -v "$(pwd)/config:/cbpi/config" -p 8000:8000 --device /dev/gpiomem
 version: "3.7"
 services:
     craftbeerpi:
-        image: papauorg/craftbeerpi4:dev
+        image: ghcr.io/papauorg/craftbeerpi4:latest
         volumes:
             - "./config:/cbpi/config"
         ports:
