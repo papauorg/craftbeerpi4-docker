@@ -15,6 +15,8 @@ RUN apt-get install --no-install-recommends -y \
     python3-pip \
     && rm -rf /var/lib/apt/lists/*
 
+RUN python -m pip install --upgrade pip setuptools wheel
+
 WORKDIR /cbpi
 # Create non-root user working directory
 RUN groupadd -g 1000 -r craftbeerpi \
