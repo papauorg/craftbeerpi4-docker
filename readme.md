@@ -4,6 +4,13 @@ This is a docker image for the CraftBeerPi 4. It is built by using the
 installation instructions from here:
 https://openbrewing.gitbook.io/craftbeerpi4_support/master/server-installation
 
+The image is currently only available for `arm64` and `amd64` architectures. That means
+that if you want to run it on a raspberry pi, you need to install a 64bit 
+operating system. It won't work with the the 32bit raspbian os.
+
+You can always attemt to build the image yourself to create a 32bit image. 
+That didn't work for me. Would be happy to accept a PR, though.
+
 ## Build
 This image is only published for arm64 and amd64 architectures.
 I could not get it to build for arm/v7. You can try to build it yourself.
