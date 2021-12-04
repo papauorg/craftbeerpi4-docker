@@ -1,3 +1,6 @@
+# The docker image is now part of the craftbeerpi4 repository. No need for this one anymore.
+ARCHIVED!
+
 # Docker image for CraftBeerPi 4
 
 This is a docker image for the CraftBeerPi 4. It is built by using the
